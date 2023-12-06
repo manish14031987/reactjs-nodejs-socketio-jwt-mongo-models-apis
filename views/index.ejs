@@ -1,0 +1,222 @@
+<%if (language == 'en') {%>
+    <table style="font-family:arial;width:750px;margin:0 auto;background-color:#fff;padding:36px; color:#212529;">
+        <tr>
+            <th style="font-size:64px; line-height:2;" align='left'><img style="width: 180px; margin-bottom: 20px;" src="/static/logo.png"></th>
+        </tr>
+       <td>
+           <table style="width:100%; border-bottom:1px solid #d7d7d7; border-top:1px solid #d7d7d7; margin-bottom:15px; padding:28px 0;" align="left">
+               <tbody style="border-bottom:1px solid #d7d7d7;">
+                   <tr style="line-height: 2.5;">
+                       <td style="text-align:left; width:40%;">
+                           <table>
+                               <tr style="color:#bdbdbd; font-size:12px;">
+                                   <td>Generated On</td>
+                               </tr>
+                               <tr style="font-size:32px; margin">
+                                    <% moment.locale('en_US');%>
+                                   <td><%= moment(response.created_at).format('Do MMMM, YYYY')  %></td>
+                               </tr>
+                           </table>
+                       </td>
+                       <td style="text-align:left;width:60%;">
+                          <table>
+                              <tr style="color:#bdbdbd; font-size:12px;">
+                                  <td>Order Number</td>
+                              </tr>
+                              <tr style="font-size:32px; margin">
+                                  <td>#00000<%= response.order_number %></td>
+                              </tr>
+                          </table>
+                      </td>
+                   </tr>
+               </tbody>
+           </table>
+           <table style="width:100%; margin-bottom:15px; padding:28px 0;" align="left">
+               <tbody style="border-bottom:1px solid #d7d7d7;">
+                   <tr style="line-height: 1; vertical-align:top;">
+                       <td style="text-align:left; width:33.333%;">
+                           <table>
+                               <tr style="font-size:12px;">
+                                   <td><b>From:</b></td>
+                               </tr>
+                               <tr style="color:#bdbdbd; font-size:12px; margin-bottom:15px; ">
+                                   <td><b><%= seller.first_name %> <%= seller.last_name %></b></td>
+                               </tr>
+                               <tr style="font-size:14px; line-height:1.8; font-weight:normal; color:#111;">
+                                   <td>
+                                       <%= response.shipping_from.address %>,<%= response.shipping_from.city %>,<%= response.shipping_from.landmark %>,<%= response.shipping_from.district %>,<%= response.shipping_from.postal_code %>
+                                       <br><%= buyer.email %><br><%= buyer.mobile_number %><br>
+                                  </td>
+                               </tr>
+                           </table>
+                       </td>
+                       <td style="text-align:left;width:33.333%;">
+                           <table>
+                               <tr style="font-size:12px;">
+                                   <td><b>To:</b></td>
+                               </tr>
+                               <tr style="color:#bdbdbd; font-size:12px;">
+                                   <td style="line-height:1.5;"><%= buyer.first_name %> <%= buyer.last_name %></td>
+                               </tr>
+                               <tr style="font-size:14px; line-height:1.8; font-weight:normal; color:#111;">
+                                   <td>
+                                       <%= response.shipping_to.address %>,<%= response.shipping_to.city %>,<%= response.shipping_to.landmark %>,<%= response.shipping_to.district %>,<%= response.shipping_to.postal_code %>
+                                       <br><%= buyer.email %><br><%= buyer.mobile_number %><br>
+                                  </td>
+                               </tr>
+                           </table>
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+           <table style="width:100%; padding-bottom:32px; margin-bottom:15px; color:#212529; background:#f2f2f2; padding:20px;">
+               <tr>
+                   <td>
+                       <table class="table table-hover" style="width:100%;" cellpadding="0" cellspacing="0">
+                           <thead>
+                               <tr>
+                                   <th style="font-size:14px;" width="70%" align="left">Receipt Description</th>
+                                   <th style="font-size:14px;" align="right" width="70%">Price</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;"><%= response.item.title %></td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.price).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;">Discount</td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.discount_price).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;">Shipping Fee</td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.shipping_fee).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;">Processing Fee</td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.Processing_fee).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr style="font-weight:bold;">
+                                   <td style="font-size:14px;padding:15px 0; border-top:2px solid #808080">Final Price</td>
+                                   <td align="right" style="font-size:14px;padding:15px 0; border-top:2px solid #808080"><%= (response.price + response.shipping_fee + response.Processing_fee - response.discount_price).toFixed(2) %> SR</td>
+                               </tr>
+
+                           </tbody>
+                       </table>
+                   </td>
+               </tr>
+           </table>
+       </td>
+   </table>
+<%}%>
+<%if (language == 'ar') {%>
+    <table dir="rtl" style="font-family:arial;width:750px;margin:0 auto;background-color:#fff;padding:36px; color:#212529;">
+        <tr>
+            <th style="font-size:64px; line-height:2;" align='right'><img style="width: 180px; margin-bottom: 20px;" src="/static/logo.png"></th>
+        </tr>
+       <td>
+           <table style="width:100%; border-bottom:1px solid #d7d7d7; border-top:1px solid #d7d7d7; margin-bottom:15px; padding:28px 0;" align="left">
+               <tbody style="border-bottom:1px solid #d7d7d7;">
+                   <tr style="line-height: 2.5;">
+                       <td style="text-align:left; width:40%;">
+                           <table>
+                               <tr style="color:#bdbdbd; font-size:12px;">
+                                   <td>ولدت في</td>
+                               </tr>
+                               <tr style="font-size:32px; margin">
+                                    <% moment.locale('ar_SA');%>
+                                   <td><%= moment(response.created_at).format('Do MMMM, YYYY')  %></td>
+                               </tr>
+                           </table>
+                       </td>
+                       <td style="text-align:left;width:60%;">
+                          <table>
+                              <tr style="color:#bdbdbd; font-size:12px;">
+                                  <td>رقم الأمر</td>
+                              </tr>
+                              <tr style="font-size:32px; margin">
+                                  <td>#00000<%= response.order_number %></td>
+                              </tr>
+                          </table>
+                      </td>
+                   </tr>
+               </tbody>
+           </table>
+           <table style="width:100%; margin-bottom:15px; padding:28px 0;" align="left">
+               <tbody style="border-bottom:1px solid #d7d7d7;">
+                   <tr style="line-height: 1; vertical-align:top;">
+                       <td style="text-align:left; width:33.333%;">
+                           <table>
+                               <tr style="font-size:12px;">
+                                   <td><b>من عند:</b></td>
+                               </tr>
+                               <tr style="color:#bdbdbd; font-size:12px; margin-bottom:15px; ">
+                                   <td><b><%= seller.first_name %> <%= seller.last_name %></b></td>
+                               </tr>
+                               <tr style="font-size:14px; line-height:1.8; font-weight:normal; color:#111;">
+                                   <td>
+                                       <%= response.shipping_from.address %>,<%= response.shipping_from.city %>,<%= response.shipping_from.landmark %>,<%= response.shipping_from.district %>,<%= response.shipping_from.postal_code %>
+                                       <br><%= buyer.email %><br><%= buyer.mobile_number %><br>
+                                  </td>
+                               </tr>
+                           </table>
+                       </td>
+                       <td style="text-align:left;width:33.333%;">
+                           <table>
+                               <tr style="font-size:12px;">
+                                   <td><b>إلى:</b></td>
+                               </tr>
+                               <tr style="color:#bdbdbd; font-size:12px;">
+                                   <td style="line-height:1.5;"><%= buyer.first_name %> <%= buyer.last_name %></td>
+                               </tr>
+                               <tr style="font-size:14px; line-height:1.8; font-weight:normal; color:#111;">
+                                   <td>
+                                       <%= response.shipping_to.address %>,<%= response.shipping_to.city %>,<%= response.shipping_to.landmark %>,<%= response.shipping_to.district %>,<%= response.shipping_to.postal_code %>
+                                       <br><%= buyer.email %><br><%= buyer.mobile_number %><br>
+                                  </td>
+                               </tr>
+                           </table>
+                       </td>
+                   </tr>
+               </tbody>
+           </table>
+           <table style="width:100%; padding-bottom:32px; margin-bottom:15px; color:#212529; background:#f2f2f2; padding:20px;">
+               <tr>
+                   <td>
+                       <table class="table table-hover" style="width:100%;" cellpadding="0" cellspacing="0">
+                           <thead>
+                               <tr>
+                                   <th style="font-size:14px;" width="70%" align="right">وصف الإيصال</th>
+                                   <th style="font-size:14px;" align="right" width="70%">سعر</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;"><%= response.item.title %></td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.price).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;">خصم</td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.discount_price).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;">رسوم الشحن</td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.shipping_fee).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;">كلفة المعالجة</td>
+                                   <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.Processing_fee).toFixed(2) %> SR</td>
+                               </tr>
+                               <tr style="font-weight:bold;">
+                                   <td style="font-size:14px;padding:15px 0; border-top:2px solid #808080">السعر النهائي</td>
+                                   <td align="right" style="font-size:14px;padding:15px 0; border-top:2px solid #808080"><%= (response.price + response.shipping_fee + response.Processing_fee - response.discount_price).toFixed(2) %> SR</td>
+                               </tr>
+
+                           </tbody>
+                       </table>
+                   </td>
+               </tr>
+           </table>
+       </td>
+   </table>
+<%}%>

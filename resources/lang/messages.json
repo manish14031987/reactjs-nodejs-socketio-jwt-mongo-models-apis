@@ -1,0 +1,85 @@
+{
+  "users": {
+    "loginSuccess": "Login successful.",
+    "loginNotVerified": "You are not Verified, first verify your Mobile/Email.",
+    "alreadyExist": "Sorry!! Account already exist.",
+    "SignUpSuccess": "Account has been created successfully.",
+    "logoutSuccess": "Logout successful.",
+    "invalidCredentials": "Invalid Credentials",
+    "accessTokenRefreshed": "Access token refreshed successfully.",
+    "notAvilable": "Email not available.",
+    "ForgotOTPSend": "Forgot password OTP send on your mobile.",
+    "tokenExpired": "Token expired.",
+    "tokenNotProvided": "Missing token.",
+    "otpVerified": "OTP verified",
+    "otpNotVerified": "OTP not verified",
+    "changePasswordSuccess": "Password has been updated successfully.",
+    "newUser": "New User.",
+    "UserNotAvilable": "User not available.",
+    "reSendOtpSuccess": "Re send OTP successfully.",
+    "userNameAlreadyExist": "Sorry!! username already exist.",
+    "emailAlreadyExist": "Sorry!! email already exist.",
+    "mobileAlreadyExist": "Sorry!! mobile already exist.",
+    "profileUpdate": "Profile has been updated successfully."
+  },
+  "category": {
+    "categoryList": "Category List."
+  },
+  "brand": {
+    "brandList": "Brand List."
+  },
+  "page": {
+    "SlugNotAvilable": "Slug not available.",
+    "getPageData": "Page data."
+  },
+  "contact": {
+    "mailSend": "Mail sent successfully."
+  },
+  "wishlist": {
+    "favoritAdd": "Wishlist has been created successfully.",
+    "favoritRemove": "Wishlist has been deleted successfully."
+  },
+  "product": {
+    "newlyAddedProductsList": "Newly added products list.",
+    "popularProductsList": "Popular products list.",
+    "productDetails": "Product details.",
+    "substituteProductList": "Substitute product list.",
+    "productListing": "Product listing.",
+    "productAutoSuggestion": "Product auto suggestion.",
+    "myWishList": "My Wish List."
+  },
+  "userAddress": {
+    "UserNotAvilable": "User not available.",
+    "AddressList": "Address list.",
+    "AddressAdd": "Address has been Added successfully.",
+    "AddressNotAvilable": "Address not available.",
+    "AddressUpdate": "Address Updated.",
+    "AddressDelete": "Address deleted"
+  },
+  "cart": {
+    "UserNotAvilable": "User not available.",
+    "ProductNotAvilable": "Product not available.",
+    "insufficientQty": "Product out of stock.",
+    "cartToCart": "Product add to cart successfully.",
+    "cartUpdated": "Cart Updated.",
+    "qtyParamMissing": "Please Provide Qty."
+  },
+  "couponCode": {
+    "CouponCodeNotAvilable": "Coupon code not available.",
+    "CouponCodeLimitReached": "Coupon code limit reached.",
+    "UserNotAvilable": "User not available.",
+    "AlreadyUsed": "You have already used this coupon code.",
+    "InsufficientAmount": "Insufficient Order Amount.",
+    "CodeApplied": "Coupon code applied successfully."
+  },
+  "Order": {
+    "UserNotAvilable": "User not avilable.",
+    "orderSuccess": "Order has been placed successfully.",
+    "stockNotAvailable": "Stock not available."
+  },
+  "Setting": {
+    "UserNotAvilable": "User not avilable.",
+    "dataNotAvailable": "Data not available.",
+    "deliveryCharges": "Delivery charges."
+  }
+}

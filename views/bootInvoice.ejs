@@ -1,0 +1,92 @@
+<%if (language == 'en') {%>
+    <table style="font-family:arial;width:750px;margin:0 auto;background-color:#fff;padding:36px; color:#212529;">
+        <tr>
+            <th style="font-size:64px; line-height:2;" align='left'><img style="width: 180px; margin-bottom: 20px;" src="/static/logo.png"></th>
+        </tr>
+       <td>
+           <table style="width:100%; border-bottom:1px solid #d7d7d7; border-top:1px solid #d7d7d7; margin-bottom:15px; padding:28px 0;" align="left">
+               <tbody style="border-bottom:1px solid #d7d7d7;">
+                   <tr style="line-height: 2.5;">
+                       <td style="text-align:left; width:40%;">
+                           <table>
+                               <tr style="color:#bdbdbd; font-size:12px;">
+                                   <td>Generated On</td>
+                               </tr>
+                               <tr style="font-size:32px; margin">
+                                    <% moment.locale('en_US');%>
+                                   <td><%= moment(response.created_at).format('Do MMMM, YYYY')  %></td>
+                               </tr>
+                           </table>
+                       </td>
+                       <td style="text-align:left;width:60%;">
+                          <table>
+                              <tr style="color:#bdbdbd; font-size:12px;">
+                                  <td>Invoice Number</td>
+                              </tr>
+                              <tr style="font-size:32px; margin">
+                                  <td>#0000<%= response.invoice_number %></td>
+                              </tr>
+                          </table>
+                      </td>
+                   </tr>
+               </tbody>
+           </table>
+           <table style="width:100%; margin-bottom:15px; padding:28px 0;" align="left">
+            <tbody style="border-bottom:1px solid #d7d7d7;">
+                <tr style="line-height: 1; vertical-align:top;">
+                    <td style="text-align:left; width:33.333%;">
+                        <table>
+                            <tr style="font-size:12px;">
+                                <td><b>From:</b></td>
+                            </tr>
+                            <tr style="color:#bdbdbd; font-size:12px; margin-bottom:15px; ">
+                                <td><b><%= settingsData.name %></b></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td style="text-align:left;width:33.333%;">
+                        <table>
+                            <tr style="font-size:12px;">
+                                <td><b>To:</b></td>
+                            </tr>
+                            <tr style="color:#bdbdbd; font-size:12px;">
+                                <td style="line-height:1.5;"><%= buyer.first_name %> <%= buyer.last_name %></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+            <table style="width:100%; padding-bottom:32px; margin-bottom:15px; color:#212529; background:#f2f2f2; padding:20px;">
+                <tr>
+                    <td>
+                        <table class="table table-hover" style="width:100%;" cellpadding="0" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th style="font-size:14px;" width="70%" align="left">Receipt Description</th>
+                                    <th style="font-size:14px;" align="right" width="70%">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-size:14px; padding:10px 0 15px 0;"><%= subscriptionData.translate.title %></td>
+                                    <td style="font-size:14px; padding:10px 0 15px 0;" align="right"><%= (response.amount).toFixed(2) %> SR</td>
+                                </tr>
+                                <tr style="font-weight:bold;">
+                                    <td style="font-size:14px;padding:15px 0; border-top:2px solid #808080">Final Price</td>
+                                    <td align="right" style="font-size:14px;padding:15px 0; border-top:2px solid #808080"><%= (response.amount).toFixed(2) %> SR</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </table>
+
+
+       </td>
+   </table>
+<%}%>
+<%if (language == 'ar') {%>
+
+<%}%>

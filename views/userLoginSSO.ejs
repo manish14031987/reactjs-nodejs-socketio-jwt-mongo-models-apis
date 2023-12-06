@@ -1,0 +1,39 @@
+<html>
+  <title>DOFFO-REFERRAL</title>
+  <meta name="description" content="I’m inviting you to use DOFFO"/>
+<head>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+ // var url = '<%= url %>';
+  //url  =  url.replace("amp;","");
+  
+	const urlParams = new URLSearchParams(window.location.search);
+	const nonce = urlParams.get('nonce');
+	const state = urlParams.get('state');
+
+    $.ajax({
+		dataType:'json',
+		type:'GET',
+		url:'http://65.1.71.229/api/v1/auth/sso/jwt/login',
+		data: {               
+			"tokenA":localStorage.getItem('userToken'),
+			"nonce":nonce,
+			"state":state
+		},
+		success:function(d){    
+			//alert(d.url);
+			window.location = d.url; 
+		}
+	});
+  
+  
+   
+ //alert(url);
+  //window.location.replace(url);
+</script>
+</head>
+<body style="text-align:center;margin-top:5%;">
+<img  src="http://65.1.71.229:2021/images/loading.gif">
+</body>
+
+</html>
