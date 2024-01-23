@@ -5,9 +5,7 @@ var logger = require("morgan");
 var fileUpload = require("express-fileupload");
 var cors = require("cors");
 require("./config/database");
-//require("./corn/index");
-var router = express.Router();
-
+var router = express.Router(); 
 const i18next = require("i18next");
 const Backend = require("i18next-fs-backend");
 const middleware = require("i18next-http-middleware");
